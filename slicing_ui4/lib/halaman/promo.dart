@@ -7,7 +7,6 @@ class PromoPage extends StatelessWidget {
     required String title,
     required String subtitle,
     required Color color,
-    double widthFactor = 0.8,
   }) {
     return Container(
       width: 250,
@@ -42,93 +41,31 @@ class PromoPage extends StatelessWidget {
     );
   }
 
-  Widget _buildBannerCard({
-    required String title,
-    required String subtitle,
-    required String imagePath,
-    required Color overlayColor,
-    required double height,
-  }) {
+  Widget _buildBannerCard(String imagePath) {
     return Container(
-      width: 250,
-      height: height,
+      width: 280,
       margin: const EdgeInsets.only(right: 12),
-      decoration: BoxDecoration(
+      child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
-        image: DecorationImage(
-          image: AssetImage(imagePath),
+        child: Image.asset(
+          imagePath,
           fit: BoxFit.cover,
-        ),
-      ),
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: overlayColor,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-            ),
-            if (subtitle.isNotEmpty) 
-              Text(
-                subtitle,
-                style: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 12,
-                ),
-              ),
-          ],
         ),
       ),
     );
   }
 
-  Widget _buildBannerImage(String path, {String? text}) {
+  Widget _buildBannerImage(String path) {
     return Container(
       width: double.infinity,
-      height: 200,
       margin: const EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(
+      child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(
-          image: AssetImage(path),
-          fit: BoxFit.cover,
+        child: Image.asset(
+          path,
+          fit: BoxFit.fitWidth,
         ),
       ),
-      child: (text != null)
-          ? Container(
-              padding: const EdgeInsets.all(15),
-              alignment: Alignment.bottomLeft,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.black.withOpacity(0.0),
-                    Colors.black.withOpacity(0.6)
-                  ],
-                ),
-              ),
-              child: Text(
-                text,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            )
-          : null,
     );
   }
 
@@ -236,14 +173,15 @@ class PromoPage extends StatelessWidget {
               ),
             ),
 
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
+              child: Wrap(
+                spacing: 8.0, 
+                runSpacing: 8.0, 
                 children: [
                   for (var text in ['11.11', 'gajian', 'riding', 'food', 'travel', 'vacation', 'hotel', 'drinks'])
                     Container(
-                      margin: const EdgeInsets.only(right: 8, bottom: 8),
+                      margin: const EdgeInsets.only(bottom: 8),
                       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -256,7 +194,6 @@ class PromoPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            
             const Padding(
               padding: EdgeInsets.only(left: 16.0, bottom: 15.0),
               child: Text(
@@ -295,7 +232,6 @@ class PromoPage extends StatelessWidget {
             ),
             const SizedBox(height: 30),
 
-            
             const Padding(
               padding: EdgeInsets.only(left: 16.0, bottom: 15.0),
               child: Text(
@@ -309,11 +245,17 @@ class PromoPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: _buildBannerImage('assets/group1.png'),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset(
+                  'assets/group1.png',
+                  width: double.infinity,
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
             ),
             const SizedBox(height: 30),
 
-            
             const Padding(
               padding: EdgeInsets.only(left: 16.0, bottom: 15.0),
               child: Text(
@@ -330,33 +272,14 @@ class PromoPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 children: [
-                  _buildBannerCard(
-                    title: "Jogjakarta",
-                    subtitle: "",
-                    imagePath: 'assets/banner4.png',
-                    overlayColor: Colors.indigo.withOpacity(0.4),
-                    height: 120,
-                  ),
-                  _buildBannerCard(
-                    title: "Candi Borobudur",
-                    subtitle: "",
-                    imagePath: 'assets/banner5.png',
-                    overlayColor: Colors.deepPurple.withOpacity(0.4),
-                    height: 120,
-                  ),
-                  _buildBannerCard(
-                    title: "Bali",
-                    subtitle: "",
-                    imagePath: 'assets/banner6.png',
-                    overlayColor: Colors.blue.withOpacity(0.4),
-                    height: 120,
-                  ),
+                  _buildBannerCard('assets/banner4.png'),
+                  _buildBannerCard('assets/banner5.png'),
+                  _buildBannerCard('assets/banner6.png'),
                 ],
               ),
             ),
             const SizedBox(height: 30),
 
-            
             const Padding(
               padding: EdgeInsets.only(left: 16.0, bottom: 15.0),
               child: Text(
@@ -373,44 +296,21 @@ class PromoPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 children: [
-                  _buildBannerCard(
-                    imagePath: 'assets/banner-1.png',
-                    overlayColor: Colors.indigo.withOpacity(0.4),
-                    height: 150, title: '', subtitle: '',
-                  ),
-                  _buildBannerCard(
-                    title: "Rp 500.000 *",
-                    subtitle: "Diskon Tiket Pesawat",
-                    imagePath: 'assets/banner-2.png',
-                    overlayColor: Colors.deepPurple.withOpacity(0.4),
-                    height: 150,
-                  ),
-                  _buildBannerCard(
-                    title: "Promo Bus",
-                    subtitle: "Diskon 40%",
-                    imagePath: 'assets/banner-3.png',
-                    overlayColor: Colors.blue.withOpacity(0.4),
-                    height: 150,
-                  ),
+                  _buildBannerCard('assets/banner-1.png'),
+                  _buildBannerCard('assets/banner-2.png'),
+                  _buildBannerCard('assets/banner-3.png'),
                 ],
               ),
             ),
             const SizedBox(height: 30),
 
-            
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 children: [
-                  _buildBannerImage(
-                    'assets/banner1.png', 
-                  ),
-                  _buildBannerImage(
-                    'assets/banner2.png', 
-                  ),
-                  _buildBannerImage(
-                    'assets/banner3.png', 
-                  ),
+                  _buildBannerImage('assets/banner1.png'),
+                  _buildBannerImage('assets/banner2.png'),
+                  _buildBannerImage('assets/banner3.png'),
                 ],
               ),
             ),
