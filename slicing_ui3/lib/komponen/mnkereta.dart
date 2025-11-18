@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 class Mnkereta extends StatelessWidget {
   final String text;
   final Widget icon;
-  final List<Color> warna; // gradient
+  final List<Color> warna;
   const Mnkereta({super.key, required this.icon, required this.text, required this.warna});
 
   @override
@@ -32,7 +32,7 @@ class Mnkereta extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           text,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color.fromARGB(255, 213, 51, 39)),
         ),
       ],
     );

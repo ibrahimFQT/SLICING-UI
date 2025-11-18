@@ -98,7 +98,7 @@ class Homepage extends StatelessWidget {
                 children: [
                    Text(
                     "Promo Terbaru",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.redAccent),
                   ),
                   Container(
                     padding:  EdgeInsets.symmetric(horizontal: 14, vertical: 8),

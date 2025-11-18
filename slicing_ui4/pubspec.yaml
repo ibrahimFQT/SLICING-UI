@@ -1,0 +1,44 @@
+name: super_deal_app
+description: A Flutter UI demo for Super Deal Kolam
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/apple.png
+    - assets/burger.png
+    - assets/fast food.png
+    - assets/orange-juice.png
+    - assets/store.png
+    - assets/vegetables.png
+    - assets/wallet.png
+    - assets/alfamart.png
+    - assets/indomaret.png
+    - assets/alfamidi.png
+    - assets/banner1.png
+    - assets/banner2.png
+    - assets/banner3.png    
+    - assets/banner4.png
+    - assets/banner5.png
+    - assets/banner6.png
+    - assets/banner-1.png
+    - assets/banner-2.png
+    - assets/banner-3.png
+    - assets/group1.png
