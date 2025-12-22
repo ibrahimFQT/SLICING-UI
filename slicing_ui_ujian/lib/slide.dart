@@ -9,48 +9,56 @@ class SlidePage extends StatelessWidget {
         title: Text('Slide Banner'),
         backgroundColor: Colors.white,
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 200,
-            child: PageView(
-              children: [
-                Image.asset('assets/banner1.png', fit: BoxFit.cover),
-                Image.asset('assets/banner2.png', fit: BoxFit.cover),
-                Image.asset('assets/banner3.png', fit: BoxFit.cover),
-              ],
-            ),
-          ),
-          SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Flexible(
-                child: Pilihan(
-                  image: 'assets/apel.png', 
-                  text: 'buah & sayur'
-                ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Container(
+              height: 200,
+              child: PageView(
+                children: [
+                  Image.asset('assets/banner1.png', fit: BoxFit.cover),
+                  Image.asset('assets/banner2.png', fit: BoxFit.cover),
+                  Image.asset('assets/banner3.png', fit: BoxFit.cover),
+                ],
               ),
-              Flexible(
-                child: Pilihan(
-                  image: 'assets/jusjeruk.png', 
-                  text: 'minuman'
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Flexible(
+                  child: Pilihan(
+                    image: 'assets/apel.png', 
+                    text: 'buah & sayur'
                   ),
                 ),
-              Flexible(
-                child: Pilihan(
-                  image: 'assets/burger.jpg', 
-                  text: 'fast food'
+                Flexible(
+                  child: Pilihan(
+                    image: 'assets/jusjeruk.png', 
+                    text: 'minuman'
+                    ),
+                  ),
+                Flexible(
+                  child: Pilihan(
+                    image: 'assets/burger.jpg', 
+                    text: 'fast food'
+                  ),
                 ),
+                Flexible(
+                  child: Pilihan(
+                    image: 'assets/kinderjoy.png', 
+                    text: 'promo terus')),
+                Flexible(
+                  child: Pilihan(
+                    image: 'assets/buahsayur.png', 
+                    text: 'beli + point'
+                  ),
               ),
-              Flexible(
-                child: Pilihan(
-                  image: 'assets/kinderjoy.png', 
-                  text: 'promo terus')),
-              Flexible(child: Pilihan(image: 'assets/buahsayur.png', text: 'beli + point')),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
