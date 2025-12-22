@@ -1,0 +1,33 @@
+name: slicing_ui_ujian
+description: A Flutter UI demo for Super Deal Kolam
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/apel.png
+    - assets/banner1.png
+    - assets/banner2.png
+    - assets/banner3.png
+    - assets/buahsayur.png
+    - assets/burger.jpg
+    - assets/jusjeruk.png
+    - assets/kinderjoy.png
+    - assets/pizza.png
